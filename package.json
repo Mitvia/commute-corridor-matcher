@@ -1,0 +1,62 @@
+{
+  "name": "commute-corridor-matcher",
+  "version": "0.1.0",
+  "description": "Zero-dependency TypeScript utilities for matching trips along commuter corridors.",
+  "license": "MIT",
+  "homepage": "https://mitvia.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mitvia/commute-corridor-matcher.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mitvia/commute-corridor-matcher/issues"
+  },
+  "keywords": [
+    "commute",
+    "corridor",
+    "geospatial",
+    "mobility",
+    "route-matching",
+    "ridesharing",
+    "scope-3",
+    "esg",
+    "emissions-calculator",
+    "ghg-protocol",
+    "carbon-accounting",
+    "transit",
+    "typescript"
+  ],
+  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/esm/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    }
+  },
+  "bin": {
+    "commute-corridor-matcher": "./dist/esm/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json && node scripts/write-cjs-package.mjs",
+    "typecheck": "tsc --noEmit -p tsconfig.esm.json",
+    "test": "vitest run",
+    "demo": "npm run build && node dist/esm/cli.js",
+    "prepack": "npm run build"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3",
+    "vitest": "^4.1.10"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
